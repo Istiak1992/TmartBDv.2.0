@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'cart',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -136,4 +137,17 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  BASE_DIR / 'media'
+
+
+AWS_ACCESS_KEY_ID = 'AKIAYQWTMRDG744QJQEG'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'tmartbd'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

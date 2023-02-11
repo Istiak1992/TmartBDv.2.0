@@ -43,7 +43,7 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     image_id = models.AutoField(primary_key=True)
-    product_image = models.ImageField(null=True, blank=True)
+    product_image = models.ImageField(null=True, blank=True, upload_to="images/")
     is_feature = models.BooleanField(default=False)
     product = models.ForeignKey(Product, related_name='prodimg', on_delete=models.CASCADE, null=True)
 
