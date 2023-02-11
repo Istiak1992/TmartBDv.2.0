@@ -44,3 +44,36 @@ class BannerAV(APIView):
         DS = Banner.objects.all()
         serializer = BannerSerializer(DS, many=True)
         return Response(serializer.data)
+
+
+
+class OrderAV(APIView):
+    # return a list of data
+    def get(self, request):
+        DS = Order.objects.all()
+        serializer = OrderSerializer(DS, many=True)
+        return Response(serializer.data)
+    
+    # Data insertion through the POST API
+    def post(self, request, format=None):
+        serializer = OrderSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ShippingAV(APIView):
+    # return a list of data
+    def get(self, request):
+        DS = Shipping.objects.all()
+        serializer = ShippingSerializer(DS, many=True)
+        return Response(serializer.data)
+    
+    # Data insertion through the POST API
+    def post(self, request, format=None):
+        serializer = ShippingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

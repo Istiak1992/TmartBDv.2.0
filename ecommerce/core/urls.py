@@ -7,6 +7,8 @@ urlpatterns = [
     path('cat/', CategorytAV.as_view(), name="CategorytAV"),
     path('banner/', BannerAV.as_view(), name="BannerAV"),
     path('productDetails/<int:pk>/', ProductDetailsAV.as_view(), name="productDetails"),
+    path('order/', OrderAV.as_view(), name="order"),
+    path('shipping/', ShippingAV.as_view(), name="shipping"),
     
     
 ]

@@ -28,4 +28,16 @@ class BannerSerializer(serializers.ModelSerializer):
         model = Banner
         fields = "__all__"
 
+class OrderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Order
+        fields = "__all__"
+
+
+class ShippingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shipping
+        fields = "__all__"
+
 

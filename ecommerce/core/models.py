@@ -23,8 +23,8 @@ class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=100,blank=True,null=True)
     description = models.CharField(max_length=1000,blank=True,null=True)
-    core_price = models.IntegerField(default=0)
-    discount = models.IntegerField(default=0)
+    core_price = models.DecimalField(null=True, max_digits=5, decimal_places=2)
+    discount = models.DecimalField(null=True, max_digits=5, decimal_places=2)
     catgory_id = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
     
 
@@ -49,3 +49,33 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return str(self.product_image)
+
+
+class Order(models.Model):
+    order_id = models.CharField(max_length=100,blank=True,null=True)
+    product_name = models.CharField(max_length=100,blank=True,null=True)
+    quantity = models.IntegerField(default=0)
+    core_price = models.DecimalField(null=True, max_digits=5, decimal_places=2)
+    disscount = models.DecimalField(null=True, max_digits=5, decimal_places=2)
+    price = models.CharField(max_length=100,blank=True,null=True)
+    sub_total = models.DecimalField(null=True, max_digits=5, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.order_id)
+
+class Shipping(models.Model):
+    order_id = models.CharField(max_length=100,blank=True,null=True)
+    customer_name = models.CharField(max_length=100,blank=True,null=True)
+    phone = models.CharField(max_length=100,blank=True,null=True)
+    address = models.CharField(max_length=100,blank=True,null=True)
+    area = models.CharField(max_length=100,blank=True,null=True)
+    thana = models.CharField(max_length=100,blank=True,null=True)
+    district = models.CharField(max_length=100,blank=True,null=True)
+    Note = models.CharField(max_length=100,blank=True,null=True)
+
+    def __str__(self):
+        return str(self.order_id)
+
+
+  
