@@ -1,6 +1,6 @@
 {
     "apps": [{
-        "name": "djnago_with_pm2",
+        "name": "server",
         "script": "manage.py",
         "args": ["runserver", "0.0.0.0:8000"],
         "exec_mode": "fork",
