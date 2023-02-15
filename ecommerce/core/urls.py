@@ -9,6 +9,7 @@ urlpatterns = [
     path('productDetails/<int:pk>/', ProductDetailsAV.as_view(), name="productDetails"),
     path('order/', OrderAV.as_view(), name="order"),
     path('shipping/', ShippingAV.as_view(), name="shipping"),
+    path('search/', SearchAPIView.as_view())
     
     
 ]
